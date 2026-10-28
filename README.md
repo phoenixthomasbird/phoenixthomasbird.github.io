@@ -22,8 +22,6 @@ To make the site public again: copy `src/index.html` over `index.html` and push.
 
 ## Rules for this site
 
-- No court advocacy and no court case material: no case names, numbers, counties, dates, parties, or judges.
-- No "transgender man" label in the copy (Phoenix's call, Oct 23, 2026).
 - AI copy describes work Phoenix directed and checked; no hype, invented numbers, or client data.
 - No cartoons that show or name the author's children.
 - Inspection copy promises nothing beyond the Washington Standards of Practice and never reads as a warranty or code inspection.
