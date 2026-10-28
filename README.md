@@ -1,6 +1,6 @@
 # phoenixtbird.com
 
-GitHub Pages user site for phoenixtbird.com: Phoenix T. Bird's cartoons, AI workflow building, and Rolling Stone Home Inspections. Plain HTML, no build step. Project repos with Pages enabled (for example `gigflow`) are still served as folders under it, e.g. https://phoenixtbird.com/gigflow/.
+GitHub Pages user site for phoenixtbird.com: Phoenix T. Bird's cartoons, AI workflow building, and Rolling Stone Home Inspections. Plain HTML, no build step. Project repos with Pages enabled (for example `gigflow`) are still served as folders under it.
 
 | File | What it is |
 |---|---|
