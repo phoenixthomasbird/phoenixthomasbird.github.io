@@ -22,8 +22,6 @@ To make the site public again: copy `src/index.html` over `index.html` and push.
 
 ## Rules for this site
 
-- Never mention or link T.J. Colman, tjcolman.com, the A Light in the Dark series, or its people (Thomi, Tommie, Amara).
-- No books on this site (since Oct 23, 2026): Five Silences, TRANSformative and On Both Sides moved to T.J. Colman.
 - No court advocacy and no court case material: no case names, numbers, counties, dates, parties, or judges.
 - No "transgender man" label in the copy (Phoenix's call, Oct 23, 2026).
 - AI copy describes work Phoenix directed and checked; no hype, invented numbers, or client data.
