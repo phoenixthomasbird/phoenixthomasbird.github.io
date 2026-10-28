@@ -55,9 +55,11 @@ function wrapper({ salt, iv, ct }) {
       :root { --night: #0d1016; --steel: #222936; --bone: #ece8e1; --ash: #a9a49b; --gold: #d2ad62;
               --head: "Poppins", "Helvetica Neue", Arial, sans-serif; --text: "Inter", "Helvetica Neue", Arial, sans-serif; }
       * { box-sizing: border-box; }
-      html, body { height: 100%; }
-      body { margin: 0; background: var(--night); color: var(--bone); font: 400 1.0625rem/1.6 var(--text); display: grid; place-items: center; padding: 2rem 1rem; }
-      form { width: 100%; max-width: 26rem; border: 1px solid var(--steel); padding: 2rem; }
+      html { height: 100%; }
+      body { margin: 0; min-height: 100%; background: var(--night); color: var(--bone); font: 400 1.0625rem/1.6 var(--text); display: grid; place-items: center; padding: 2rem 1rem; }
+      .card { width: 100%; max-width: 26rem; border: 1px solid var(--steel); display: grid; }
+      .card img { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--steel); }
+      form { padding: 2rem; }
       .k { font: 600 0.75rem/1 var(--head); letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin: 0 0 1rem; }
       h1 { font: 700 1.8rem/1.1 var(--head); margin: 0 0 0.8rem; }
       .note { color: var(--ash); font-size: 0.95rem; margin: 0 0 1.4rem; }
@@ -72,6 +74,8 @@ function wrapper({ salt, iv, ct }) {
     </style>
   </head>
   <body>
+    <main class="card">
+    <img src="/assets/lock-photo.webp" width="1000" height="750" alt="Phoenix in a backwards cap, leaning on a big Minion figure." />
     <form id="f">
       <p class="k">Private preview</p>
       <h1>Phoenix T. Bird</h1>
@@ -82,6 +86,7 @@ function wrapper({ salt, iv, ct }) {
       <p id="msg" role="status" aria-live="polite"></p>
       <p class="alt">Code and project write-ups are public on <a href="https://github.com/phoenixthomasbird">GitHub</a>.</p>
     </form>
+    </main>
     <script>
       const SALT = "${salt}", IV = "${iv}", CT = "${ct}", ITER = ${ITERATIONS};
       const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
