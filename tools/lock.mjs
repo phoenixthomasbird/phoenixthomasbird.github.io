@@ -41,6 +41,16 @@ function encrypt(plaintext, password) {
   return { salt: salt.toString("base64"), iv: iv.toString("base64"), ct: body.toString("base64") };
 }
 
+// The lock card's words can be overridden per page (LOCK_TITLE, LOCK_KICKER, LOCK_HEADING, LOCK_NOTE, LOCK_PHOTO="" hides the photo).
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const T = {
+  title: esc(process.env.LOCK_TITLE ?? "Phoenix T. Bird"),
+  kicker: esc(process.env.LOCK_KICKER ?? "Private preview"),
+  heading: esc(process.env.LOCK_HEADING ?? "Phoenix T. Bird"),
+  note: esc(process.env.LOCK_NOTE ?? "This site is for people looking to hire Phoenix. The password is in Phoenix's resume or application."),
+  photo: process.env.LOCK_PHOTO === "" ? "" : `<img src="/assets/lock-photo.webp" width="1000" height="750" alt="Phoenix in a backwards cap, leaning on a big Minion figure." />`,
+};
+
 function wrapper({ salt, iv, ct }) {
   return `<!doctype html>
 <html lang="en">
@@ -49,7 +59,7 @@ function wrapper({ salt, iv, ct }) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="color-scheme" content="dark" />
-    <title>Phoenix T. Bird</title>
+    <title>${T.title}</title>
     <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
     <style>
       :root { --night: #0d1016; --steel: #222936; --bone: #ece8e1; --ash: #a9a49b; --gold: #d2ad62;
@@ -75,11 +85,11 @@ function wrapper({ salt, iv, ct }) {
   </head>
   <body>
     <main class="card">
-    <img src="/assets/lock-photo.webp" width="1000" height="750" alt="Phoenix in a backwards cap, leaning on a big Minion figure." />
+    ${T.photo}
     <form id="f">
-      <p class="k">Private preview</p>
-      <h1>Phoenix T. Bird</h1>
-      <p class="note">This site is for people looking to hire Phoenix. The password is in Phoenix's resume or application.</p>
+      <p class="k">${T.kicker}</p>
+      <h1>${T.heading}</h1>
+      <p class="note">${T.note}</p>
       <label for="pw">Password</label>
       <input id="pw" type="password" autocomplete="current-password" required autofocus />
       <button type="submit">Open</button>
