@@ -18,6 +18,8 @@ The published `index.html` holds only encrypted text (AES-256-GCM, key from the 
 
 To change the page: edit `src/index.html`, run `node tools/lock.mjs` (it asks for the password twice), then commit and push `index.html`. A backup of the readable page lives outside this repo.
 
+To change only the lock screen's look (its text, styles or the show-password eye button) without retyping the password: edit the template in `tools/lock.mjs`, run `node tools/lock.mjs --rewrap`, then commit and push `index.html`. The encrypted page and password stay the same.
+
 To make the site public again: copy `src/index.html` over `index.html` and push.
 
 ## Rules for this site
